@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Template.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create Employee</h1>
+    <form action="/saveEmployee" method="post" th:object="${employee}">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" th:field="*{nom}" />
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" th:field="*{prenom}" />
+
+        <label for="poste">Poste:</label>
+        <input type="text" id="poste" name="poste" th:field="*{poste}" />
+
+        <label for="salaire">Salaire:</label>
+        <input type="text" id="salaire" name="salaire" th:field="*{salaire}" />
+
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

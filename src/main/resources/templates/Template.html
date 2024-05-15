@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css">
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chanwalrus-941861.jpg&fm=jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/}">Classico</a>
+        </li>
+        *
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Menu</a>
+            <ul class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{createMenu}">New</a>
+                <li><a class="dropdown-item" th:href="@{menusList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Command</a>
+            <ul class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{createCommand}">New</a>
+                <li><a class="dropdown-item" th:href="@{commandsList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Client</a>
+            <ul class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{createClient}">New</a>
+                <li><a class="dropdown-item" th:href="@{clientsList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Table</a>
+            <ul class="dropdown-menu">
+
+                    <a class="dropdown-item" th:href="@{createTable}">New</a>
+                <li><a class="dropdown-item" th:href="@{tablesList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Employee</a>
+            <ul class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{createEmployee}">New</a>
+               <li> <a class="dropdown-item" th:href="@{employeesList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Stock</a>
+            <ul class="dropdown-menu">
+                <a class="dropdown-item" th:href="@{createStock}">New</a>
+                <li> <a class="dropdown-item" th:href="@{stockList}">List</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Owner</a>
+            <ul class="dropdown-menu">
+
+                <a class="dropdown-item" th:href="@{createOwner}">New</a>
+                <li><a class="dropdown-item" th:href="@{ownersList}">List</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</nav>
+<main class="container mt-5">
+    <div layout:fragment="content">
+
+    </div>
+</main>
+
+</body>
+</html>

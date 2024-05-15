@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Template.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        select,
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create Stock</h1>
+    <form action="/saveStock" method="post" th:object="${stock}">
+        <label for="nomProduit">Nom du produit:</label>
+        <input type="text" id="nomProduit" name="nomProduit" th:field="*{nomProduit}" />
+
+        <label for="quantiteStock">Quantité en stock:</label>
+        <input type="text" id="quantiteStock" name="quantiteStock" th:field="*{quantiteStock}" />
+
+        <label for="prixUnitaire">Prix unitaire:</label>
+        <input type="text" id="prixUnitaire" name="prixUnitaire" th:field="*{prixUnitaire}" />
+
+        <label for="dateExpiration">Date d'expiration:</label>
+        <input type="text" id="dateExpiration" name="dateExpiration" th:field="*{dateExpiration}" />
+
+        <label for="restaurant">Restaurant:</label>
+        <select id="restaurant" name="restaurant.id">
+            <option th:each="restaurant : ${restaurants}" th:value="${restaurant.id}" th:text="${restaurant.nom}"></option>
+        </select>
+
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

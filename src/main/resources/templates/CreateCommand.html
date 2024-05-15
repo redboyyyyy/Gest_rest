@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Template.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Command</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        select,
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create Command</h1>
+    <form action="/saveCommand" method="post" th:object="${command}">
+        <label for="employee">Employee:</label>
+        <select id="employee" name="employee" th:field="*{employee.id}">
+            <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.id}"></option>
+        </select>
+
+        <label for="table">Table:</label>
+        <select id="table" name="table" th:field="*{table.id}">
+            <option th:each="table : ${tables}" th:value="${table.id}" th:text="${table.id}"></option>
+        </select>
+
+        <label for="client">Client:</label>
+        <select id="client" name="client" th:field="*{client.id}">
+            <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.id}"></option>
+        </select>
+
+
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Template.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Owner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create Owner</h1>
+    <form action="/saveOwner" method="post" th:object="${owner}">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" th:field="*{nom}" />
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" th:field="*{prenom}" />
+
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" name="adresse" th:field="*{adresse}" />
+
+        <label for="numeroTelephone">Numéro de téléphone:</label>
+        <input type="text" id="numeroTelephone" name="numeroTelephone" th:field="*{numeroTelephone}" />
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" th:field="*{email}" />
+
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

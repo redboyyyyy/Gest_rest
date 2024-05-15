@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Template.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Dish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        select,
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create a Dish</h1>
+    <form action="/saveMenu" method="post" th:object="${menu}">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" />
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" th:field="*{description}" />
+
+        <label for="price">Prix:</label>
+        <input type="text" id="price" name="price" th:field="*{price}" />
+
+
+
+
+
+        <button type="submit">Enregistrer</button>
+    </form>
+</div>
+</body>
+</html>
